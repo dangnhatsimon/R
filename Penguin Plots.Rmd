@@ -1,0 +1,35 @@
+---
+title: "Penguins Plots"
+author: "Dang Nhat"
+date: "2022-12-22"
+output: html_document
+---
+# Peguin Plots: Practice analysis
+
+## Setting up my enviroment
+Notes: setting up my R environment by loading packages:
+
+ * tidyverse
+ * palmerpenguins
+
+For more details on using R Markdown click here [link](https://rmarkdown.rstudio.com/)
+```{r}
+library(tidyverse)
+library(palmerpenguins)
+```
+
+
+## Setting up plot about Body mass vs Flipper length of three penguin species
+Notes: build up a plot described about dependence of body mass in flipper length of three penguin species
+```{r}
+p<-penguins %>% 
+  ggplot() + geom_point(aes(x=flipper_length_mm, y=body_mass_g, color=species, shape=species, alpha=1)) +
+  labs(title="Palmer Penguins: Body Mass vs Flipper Length", subtitle = "Sample of Three Penguin Species", 
+       caption = "Data collected by Dr. Kristen Gorman")
+p+annotate("text",x=220, y=3500, label = "The Gentoos are the largest", color ="purple", fontface ="bold", size =4.5, angle = 25)+
+  annotate("rect", xmin = 170, xmax = 185, ymin =2500, ymax = 4000, alpha=0.5)
+```
+
+## Example
+Signature of author:
+![Plot this way](D:/Chu_ky-removebg.png)
